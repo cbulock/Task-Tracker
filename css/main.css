@@ -1,0 +1,14 @@
+body {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+}
+
+.btn.btn-default {
+	display: block;
+	margin: 2rem auto;
+	background-color: #FF9900;
+	color: white;
+	border-color: #F39D00;
+	font-size: 2rem;
+}

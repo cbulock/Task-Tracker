@@ -1,0 +1,20 @@
+#Protect cfg files from being read
+<FilesMatch "\.(cfg)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+
+RewriteEngine on 
+
+RewriteRule ^/?add$ add.php [L]
+
+RewriteRule ^/?chore$ chore.php [L]
+
+RewriteRule ^/?your_history$ your_history.php [L]
+
+RewriteRule ^/?history$ history.php [L]
+
+RewriteRule ^/?who$ who.php [L]
+
+RewriteRule ^/?admin$ admin.php [L]

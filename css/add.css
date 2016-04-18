@@ -1,0 +1,21 @@
+body {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+}
+
+label {
+	padding-right: 1rem;
+}
+
+input.form-control, textarea.form-control {
+	width: 40rem;
+}
+
+.slider-tick-label:last-child {
+	float: right;
+}
+
+.form-group {
+	margin-bottom: 4rem;
+}
