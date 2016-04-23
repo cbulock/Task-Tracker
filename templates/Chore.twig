@@ -1,0 +1,15 @@
+{% extends "Base.twig" %}
+
+{% block title %}{{ chore.name }}{% endblock %}
+
+{% block content %}
+		<h2>{{ chore.name }}</h2>
+
+		<p class='lead'>{{ chore.desc }}</p>
+
+		<p>This chore is available to do every {{ chore.repeat }} days.</p>
+		<form action='record_chore.php' method='post'>
+			<input type='hidden' name='chore' value='{{ chore.id }}'>
+			<button class="btn btn-primary" type='submit'>Finished This Chore</button>
+		</form>
+{% endblock %}

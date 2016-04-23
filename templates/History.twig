@@ -1,0 +1,12 @@
+{% extends "Base.twig" %}
+
+{% block title %}Chore History{% endblock %}
+
+{% block content %}
+	<h2>Chore History</h2>
+	<table class='table'>
+	{% for log in logs %}
+		<tr><td>{{ log.date }}</td><td><a href='/chore/{{ log.chore_id }}'>{{ log.chore_name }}</a></td><td>{{ log.username }}</td></tr>
+	{% endfor %}
+	</table>
+{% endblock %}

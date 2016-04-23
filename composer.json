@@ -1,0 +1,21 @@
+{
+    "name": "cbulock/task-tracker",
+    "description": "Tracks routine tasks that need to be completed",
+    "authors": [
+        {
+            "name": "Cameron Bulock",
+            "email": "cameron@bulock.com"
+        }
+    ],
+    "require": {
+      "php" : ">=5.5",
+      "cbulock/simple-router": "dev-master",
+      "twig/twig": "1.24.*",
+      "davewid/peyote": "0.7.*"
+    },
+    "autoload": {
+     "psr-4" : {
+       "cbulock\\task_tracker\\" : "src/"
+     }
+   }
+}

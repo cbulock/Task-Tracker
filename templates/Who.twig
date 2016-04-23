@@ -1,0 +1,10 @@
+{% extends "Base.twig" %}
+
+{% block title %}Who Are You?{% endblock %}
+
+{% block content %}
+	<h2>Who Are You?</h2>
+	{% for user in users %}
+		<a href='/set_user.php?id={{ user.id }}' class='btn btn-default'>{{ user.name }}</a>
+	{% endfor %}
+{% endblock %}

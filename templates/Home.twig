@@ -1,0 +1,12 @@
+{% extends "Base.twig" %}
+
+{% block title %}Available Chores{% endblock %}
+
+{% block content %}
+		<h2>Available Chores</h2>
+		{% for chore in chores %}
+			<a href='/chore/{{ chore.chore_id }}' class='btn btn-default'>{{ chore.name }}</a>
+		{% endfor %}
+
+		<a href='/history'>Your Chore History</a>
+{% endblock %}

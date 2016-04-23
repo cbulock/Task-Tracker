@@ -1,0 +1,11 @@
+{
+	"map":	{
+		"add":			"Add",
+		"admin":		"Admin",
+		"chore":		"Chore",
+		"history":	"History",
+		"who":			"Who"
+	},
+	"default":		"Home",
+	"not_found":	"NotFound"
+}

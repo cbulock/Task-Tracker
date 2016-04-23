@@ -1,0 +1,170 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "4bff5569146867e4fbf38649bd509b6c",
+    "packages": [
+        {
+            "name": "cbulock/simple-router",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cbulock/SimpleRouter.git",
+                "reference": "e54321053b9c2e450dd6c9ba78268096fbd3de22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cbulock/SimpleRouter/zipball/e54321053b9c2e450dd6c9ba78268096fbd3de22",
+                "reference": "e54321053b9c2e450dd6c9ba78268096fbd3de22",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "0.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cbulock\\Simple\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Cameron Bulock",
+                    "email": "cameron@bulock.com",
+                    "homepage": "http://cameron.bulock.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Very basic router",
+            "homepage": "http://github.com/cbulock/SimpleRouter/",
+            "time": "2015-05-12 19:05:34"
+        },
+        {
+            "name": "davewid/peyote",
+            "version": "0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daveWid/Peyote.git",
+                "reference": "82ec913232fe843de02f8ecd5f309dd0554d6624"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daveWid/Peyote/zipball/82ec913232fe843de02f8ecd5f309dd0554d6624",
+                "reference": "82ec913232fe843de02f8ecd5f309dd0554d6624",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phing/phing": "2.6.*",
+                "phpdocumentor/phpdocumentor": "2.0.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Peyote": "classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Widmer",
+                    "email": "dave@davewidmer.net",
+                    "homepage": "http://www.davewidmer.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A database query builder for PHP 5.3+",
+            "homepage": "https://github.com/daveWid/Peyote",
+            "keywords": [
+                "database",
+                "mysql",
+                "query builder"
+            ],
+            "time": "2014-02-11 15:18:52"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.24-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2016-01-25 21:22:18"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "cbulock/simple-router": 20
+    },
+    "platform": {
+        "php": ">=5.5"
+    },
+    "platform-dev": []
+}
