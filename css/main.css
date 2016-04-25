@@ -1,7 +1,10 @@
 body {
 	display: flex;
 	justify-content: center;
-	margin: 2rem;
+	flex-direction: column;
+	margin: 2rem auto;
+	max-width: 30em;
+	text-align: center;
 }
 
 .btn.btn-default {
@@ -11,4 +14,8 @@ body {
 	color: white;
 	border-color: #F39D00;
 	font-size: 2rem;
+}
+
+.lead, .table {
+	text-align: left;
 }

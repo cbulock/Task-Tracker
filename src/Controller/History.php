@@ -4,6 +4,7 @@ namespace cbulock\task_tracker\Controller;
 class History extends Base {
 
 	public function process() {
+
 		$this->setTemplate('History');
 
 		$history = new \cbulock\task_tracker\History;

@@ -24,6 +24,6 @@ class Chore {
 	public function get($id) {
 		$query = new \Peyote\Select('chores');
 		$query->where('id', '=', $id);
-		return $this->db->fetch($query);
+		return $this->db->fetch($query)[0];
 	}
 }

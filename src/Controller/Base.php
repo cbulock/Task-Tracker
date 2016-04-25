@@ -8,6 +8,11 @@ class Base {
 
  public function __construct($route) {
   $this->route = $route;
+
+  if (!$_COOKIE['user'] && $this->route->get_data(0) != 'who') {
+   header('Location: /who');
+  }
+
   $this->setupInterface();
  }
 
@@ -27,7 +32,17 @@ class Base {
   $this->interface->setContentType($content_type);
  }
 
+ public function get_user_data() {
+ 	$user = new \cbulock\task_tracker\User;
+ 	$this->addData(
+		[
+			'user' => $user->current()
+		]
+	);
+ }
+
  public function load() {
+ 	$this->get_user_data();
   $this->process();
   $this->interface->output();
  }

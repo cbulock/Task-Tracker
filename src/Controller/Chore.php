@@ -4,6 +4,7 @@ namespace cbulock\task_tracker\Controller;
 class Chore extends Base {
 
 	public function process() {
+
 		$this->setTemplate('Chore');
 
 		$chore = new \cbulock\task_tracker\Chore;
@@ -12,7 +13,7 @@ class Chore extends Base {
 
 		$this->addData(
 			[
-				'chore' => $chore->get($id)[0]
+				'chore' => $chore->get($id)
 			]
 		);
 	}

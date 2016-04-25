@@ -20,6 +20,12 @@
 
 	<body>
 
+		<header>
+			{% if user %}
+				<p class='text-right'>Hello, {{ user.name }}.</p>
+			{% endif %}
+		</header>
+
 		<content>
 			{% block content %}{% endblock %}
 		</content>

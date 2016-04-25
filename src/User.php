@@ -13,4 +13,12 @@ class User {
 		$query = new \Peyote\Select('users');
 		return $this->db->fetch($query);
 	}
+
+	public function current() {
+		$user = $_COOKIE['user'];
+
+		$query = new \Peyote\Select('users');
+		$query->where('id', '=', $user);
+		return $this->db->fetch($query)[0];
+	}
 }
