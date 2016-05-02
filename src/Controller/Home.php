@@ -6,11 +6,11 @@ class Home extends Base {
 	public function process() {
 		$this->setTemplate('Home');
 
-		$chore = new \cbulock\task_tracker\Chore;
+		$task = new \cbulock\task_tracker\Task;
 
 		$this->addData(
 			[
-				'chores' => $chore->available()
+				'tasks' => $task->available()
 			]
 		);
 	}

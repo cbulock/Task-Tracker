@@ -11,9 +11,9 @@ class History {
 
 	public function all() {
 		$query = new \Peyote\Select('history h');
-		$query->columns('c.name chore_name, date, c.id chore_id, u.name username, u.id user_id')
-					->join('chores c', 'left')
-					->on('c.id', '=', 'h.chore')
+		$query->columns('t.name task_name, date, t.id task_id, u.name username, u.id user_id')
+					->join('tasks t', 'left')
+					->on('t.id', '=', 'h.task')
 					->join('users u', 'left')
 					->on('u.id', '=', 'h.user')
 					->orderBy('date', 'desc');
@@ -22,9 +22,9 @@ class History {
 
 	public function user($user) {
 		$query = new \Peyote\Select('history h');
-		$query->columns('c.name chore_name, date, c.id chore_id')
-					->join('chores c', 'left')
-					->on('c.id', '=', 'h.chore')
+		$query->columns('t.name task_name, date, t.id task_id')
+					->join('tasks t', 'left')
+					->on('t.id', '=', 'h.task')
 					->join('users u', 'left')
 					->on('u.id', '=', 'h.user')
 					->where('h.user', '=', $user)

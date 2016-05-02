@@ -3,8 +3,8 @@
 {% block title %}Admin{% endblock %}
 
 {% block content %}
-	<h2>Chore Admin</h2>
+	<h2>{{ task_name }} Admin</h2>
 
-	<a href='/add' class='btn btn-default'>Add Chores</a>
-	<a href='/history/all' class='btn btn-default'>Chore History</a>
+	<a href='/add' class='btn btn-default'>Add {{ task_name }}</a>
+	<a href='/history/all' class='btn btn-default'>{{ task_name }} History</a>
 {% endblock %}

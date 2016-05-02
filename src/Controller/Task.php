@@ -1,19 +1,19 @@
 <?php
 namespace cbulock\task_tracker\Controller;
 
-class Chore extends Base {
+class Task extends Base {
 
 	public function process() {
 
-		$this->setTemplate('Chore');
+		$this->setTemplate('Task');
 
-		$chore = new \cbulock\task_tracker\Chore;
+		$task = new \cbulock\task_tracker\Task;
 
 		$id = $this->route->get_data(1);
 
 		$this->addData(
 			[
-				'chore' => $chore->get($id)
+				'task' => $task->get($id)
 			]
 		);
 	}

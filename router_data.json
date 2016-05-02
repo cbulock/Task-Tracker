@@ -3,8 +3,8 @@
 		"add":			"Add",
 		"admin":		"Admin",
 		"api":			"PublicAPI",
-		"chore":		"Chore",
 		"history":	"History",
+		"task":			"Task",
 		"who":			"Who"
 	},
 	"default":		"Home",

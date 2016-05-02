@@ -4,7 +4,8 @@ namespace cbulock\task_tracker;
 class DB extends \PDO {
 
 	public function __construct() {
-		parent::__construct('mysql:host=localhost;dbname=' . DB_NAME, DB_USER, DB_PASS);
+		$settings = new Settings;
+		parent::__construct('mysql:host=localhost;dbname=' . $settings->get('db_name'), $settings->get('db_user'), $settings->get('db_pass'));
 		$this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 		$this->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
 	}

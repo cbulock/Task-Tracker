@@ -1,5 +1,5 @@
-#Protect cfg files from being read
-<FilesMatch "\.(cfg)$">
+#Protect settings files from being read
+<FilesMatch "settings.json">
  Order Allow,Deny
  Deny from all
 </FilesMatch>

@@ -1,16 +1,16 @@
 {% extends "Base.twig" %}
 
-{% block title %}Add Chore{% endblock %}
+{% block title %}Add {{ task_name }}{% endblock %}
 
 {% block content %}
-	<form id='add_chore'>
+	<form id='add_task'>
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" name="name" placeholder="Chore Name">
+			<input type="text" class="form-control" id="name" name="name" placeholder="{{ task_name }} Name">
 		</div>
 		<div class="form-group">
 			<label for="desc">Description</label>
-			<textarea class="form-control" id="desc" name="desc" placeholder="Chore description"></textarea>
+			<textarea class="form-control" id="desc" name="desc" placeholder="{{ task_name }} description"></textarea>
 		</div>
 		<div class="form-group">
 			<label for="repeat">Repeat After</label>
@@ -25,7 +25,7 @@
 					data-slider-value="7"
 					data-slider-max="30"
 			>
-			<p class="help-block">After how many days should this chore be available to complete again?</p>
+			<p class="help-block">After how many days should this {{ task_name | lower}} be available to complete again?</p>
 		</div>
 		<div class="form-group">
 			<label for="priority">Priority</label>
@@ -39,7 +39,7 @@
 					data-slider-value="3"
 			>
 		</div>
-		<button type="submit" class="btn btn-primary">Add Chore</button>
+		<button type="submit" class="btn btn-primary">Add {{ task_name }}</button>
 	</form>
 {% endblock %}
 

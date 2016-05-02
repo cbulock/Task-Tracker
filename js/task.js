@@ -1,7 +1,7 @@
-$('#record_chore').on('submit', function(event){
+$('#record_task').on('submit', function(event){
 	event.preventDefault();
-	TT.call('Chore/record', {
-		id: $('#chore_id').val()
+	TT.call('Task/record', {
+		id: $('#task_id').val()
 	})
 	.done(function( response ) {
 		TT.notifications.store( response.notification_message );

@@ -1,6 +1,6 @@
-$('#add_chore').on('submit', function(event){
+$('#add_task').on('submit', function(event){
 	event.preventDefault();
-	TT.call('Chore/add', {
+	TT.call('Task/add', {
 		name: $('#name').val(),
 		desc: $('#desc').val(),
 		priority: $('#priority').val(),
@@ -8,6 +8,6 @@ $('#add_chore').on('submit', function(event){
 	})
 	.done(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
-		$('#add_chore').trigger("reset");
+		$('#add_task').trigger("reset");
 	});
 });

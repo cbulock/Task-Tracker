@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `chores` (
+CREATE TABLE IF NOT EXISTS `tasks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `desc` text NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `chores` (
 
 CREATE TABLE IF NOT EXISTS `history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chore` int(11) NOT NULL,
+  `task` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)

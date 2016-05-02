@@ -1,16 +1,16 @@
 {% extends "Base.twig" %}
 
-{% block title %}Available Chores{% endblock %}
+{% block title %}Available {{ task_name }}s{% endblock %}
 
 {% block content %}
-		<h2>Available Chores</h2>
-		{% for chore in chores %}
-			<a href='/chore/{{ chore.chore_id }}' class='btn btn-default'>{{ chore.name }}</a>
+		<h2>Available {{ task_name }}s</h2>
+		{% for task in tasks %}
+			<a href='/task/{{ task.task_id }}' class='btn btn-default'>{{ task.name }}</a>
 		{% endfor %}
 
 		{% if user.is_admin %}
 			<a href='/admin'>Admin Links</a>
 		{% else %}
-			<a href='/history'>Your Chore History</a>
+			<a href='/history'>Your {{ task_name }} History</a>
 		{% endif %}
 {% endblock %}

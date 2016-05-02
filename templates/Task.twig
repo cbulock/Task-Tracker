@@ -1,0 +1,19 @@
+{% extends "Base.twig" %}
+
+{% block title %}{{ task.name }}{% endblock %}
+
+{% block content %}
+		<h2>{{ task.name }}</h2>
+
+		<p class='lead'>{{ task.desc }}</p>
+
+		<p>This {{ task_name | lower }} is available to do every {{ task.repeat }} days.</p>
+		<form id='record_task'>
+			<input type='hidden' name='task' id='task_id' value='{{ task.id }}'>
+			<button class="btn btn-primary" type='submit'>Finished This {{ task_name }}</button>
+		</form>
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/task.js"></script>
+{% endblock %}
