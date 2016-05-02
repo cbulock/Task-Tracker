@@ -8,5 +8,9 @@
 			<a href='/chore/{{ chore.chore_id }}' class='btn btn-default'>{{ chore.name }}</a>
 		{% endfor %}
 
-		<a href='/history'>Your Chore History</a>
+		{% if user.is_admin %}
+			<a href='/admin'>Admin Links</a>
+		{% else %}
+			<a href='/history'>Your Chore History</a>
+		{% endif %}
 {% endblock %}

@@ -1,10 +1,24 @@
 body {
 	display: flex;
-	justify-content: center;
+	align-items: center;
 	flex-direction: column;
-	margin: 2rem auto;
-	max-width: 30em;
+	margin: 2rem;
+}
+
+h2 {
 	text-align: center;
+}
+
+header {
+	width: 100%;
+}
+
+header form {
+	display: inline;
+}
+
+header form button {
+	margin-top: -2px;
 }
 
 .btn.btn-default {
@@ -14,8 +28,5 @@ body {
 	color: white;
 	border-color: #F39D00;
 	font-size: 2rem;
-}
-
-.lead, .table {
-	text-align: left;
+	width: 100%;
 }

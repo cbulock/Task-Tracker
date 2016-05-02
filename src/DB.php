@@ -16,4 +16,10 @@ class DB extends \PDO {
 		return $s->fetchAll();
 	}
 
+	public function put(\Peyote\Query $query) {
+		$q = $query->compile();
+		$s = $this->prepare($q);
+		return $s->execute($query->getParams());
+	}
+
 }

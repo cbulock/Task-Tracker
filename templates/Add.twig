@@ -3,7 +3,7 @@
 {% block title %}Add Chore{% endblock %}
 
 {% block content %}
-	<form action='/add_chore.php' method='post'>
+	<form id='add_chore'>
 		<div class="form-group">
 			<label for="name">Name</label>
 			<input type="text" class="form-control" id="name" name="name" placeholder="Chore Name">
@@ -50,4 +50,5 @@
 
 {% block javascript %}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.min.js"></script>
+	<script src="/js/add.js"></script>
 {% endblock %}

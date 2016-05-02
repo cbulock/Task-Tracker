@@ -6,7 +6,7 @@ class Chore {
 	private $db;
 	
 	public function __construct() {
-		$this->db = new DB();
+		$this->db = new DB;
 	}
 
 	public function available() {
@@ -25,5 +25,21 @@ class Chore {
 		$query = new \Peyote\Select('chores');
 		$query->where('id', '=', $id);
 		return $this->db->fetch($query)[0];
+	}
+
+	public function add($name, $desc, $priority = 3, $repeat = 7) {
+		$query = new \Peyote\Insert('chores');
+		$query->columns(['name', '`desc`', 'priority', '`repeat`'])
+					->values([$name, $desc, $priority, $repeat]);
+		return $this->db->put($query);
+	}
+
+	public function record($chore_id) {
+		$user = new User;
+
+		$query = new \Peyote\Insert('history');
+		$query->columns(['chore', 'user', 'date'])
+					->values([$chore_id, $user->current()['id'], date('Y-m-d')]);
+		return $this->db->put($query);
 	}
 }

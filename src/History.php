@@ -6,12 +6,12 @@ class History {
 	private $db;
 	
 	public function __construct() {
-		$this->db = new DB();
+		$this->db = new DB;
 	}
 
 	public function all() {
 		$query = new \Peyote\Select('history h');
-		$query->columns('c.name chore_name, date, c.id chore_id, u.name username')
+		$query->columns('c.name chore_name, date, c.id chore_id, u.name username, u.id user_id')
 					->join('chores c', 'left')
 					->on('c.id', '=', 'h.chore')
 					->join('users u', 'left')

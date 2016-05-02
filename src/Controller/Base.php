@@ -9,7 +9,7 @@ class Base {
  public function __construct($route) {
   $this->route = $route;
 
-  if (!$_COOKIE['user'] && $this->route->get_data(0) != 'who') {
+  if ( !$_COOKIE['user'] && ($this->route->get_data(0) != 'who' && $this->route->get_data(0) != 'api') ) {
    header('Location: /who');
   }
 

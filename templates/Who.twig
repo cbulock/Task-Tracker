@@ -5,6 +5,10 @@
 {% block content %}
 	<h2>Who Are You?</h2>
 	{% for user in users %}
-		<a href='/set_user.php?id={{ user.id }}' class='btn btn-default'>{{ user.name }}</a>
+		<button class='btn btn-default who' value='{{ user.id }}'>{{ user.name }}</button>
 	{% endfor %}
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/who.js"></script>
 {% endblock %}

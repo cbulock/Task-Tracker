@@ -8,8 +8,12 @@
 		<p class='lead'>{{ chore.desc }}</p>
 
 		<p>This chore is available to do every {{ chore.repeat }} days.</p>
-		<form action='/record_chore.php' method='post'>
-			<input type='hidden' name='chore' value='{{ chore.id }}'>
+		<form id='record_chore'>
+			<input type='hidden' name='chore' id='chore_id' value='{{ chore.id }}'>
 			<button class="btn btn-primary" type='submit'>Finished This Chore</button>
 		</form>
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/chore.js"></script>
 {% endblock %}

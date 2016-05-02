@@ -1,0 +1,23 @@
+{
+  "name": "Task Tracker",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cbulock/Task-Tracker",
+  "authors": [
+    "Cameron Bulock <cameron@bulock.com>"
+  ],
+  "description": "Tool for tracking chores and house maintenance",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "noty": "~2.3.8"
+  }
+}

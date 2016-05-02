@@ -22,7 +22,7 @@
 
 		<header>
 			{% if user %}
-				<p class='text-right'>Hello, {{ user.name }}.</p>
+				<div class='text-right'>Hello, {{ user.name }} <form id='logout'><button class='btn btn-link' type='submit'>Logout</button></form></div>
 			{% endif %}
 		</header>
 
@@ -30,6 +30,9 @@
 			{% block content %}{% endblock %}
 		</content>
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+		<script src="/bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+		<script src="/js/api.js"></script>
+		<script src="/js/base.js"></script>
 		{% block javascript %}{% endblock %}
 	</body>
 

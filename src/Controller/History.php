@@ -13,16 +13,24 @@ class History extends Base {
 
 		if ($data == 'all') {
 			$logs = $history->all();
+			$title = 'All History';
 		}
 		else {
 			$user = $_COOKIE['user'];
-			if ($data) $user = $data;
+			$title = 'Your History';
+			if ($data) {
+				$user = $data;
+				$userdata = new \cbulock\task_tracker\User;
+				$name = $userdata->get($user)['name'];
+				$title = $name . "'s History";
+			}
 			$logs = $history->user($user);
 		}
 
 		$this->addData(
 			[
-				'logs' => $logs
+				'logs' => $logs,
+				'title' => $title
 			]
 		);
 	}
