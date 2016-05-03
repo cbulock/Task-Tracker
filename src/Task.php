@@ -16,7 +16,7 @@ class Task {
 					->on('t.id', '=', 'history_new.task')
 					->join('history h', 'left')
 					->on('h.id', '=', 'history_new.max_id')
-					->where('h.date IS NULL OR ((DATE(NOW()) - h.date) - t.repeat)', '>=', '0')
+					->where('h.date IS NULL OR (DATEDIFF(NOW(), h.date) - t.repeat)', '>=', '0')
 					->orderBy('t.priority', 'desc');
 		return $this->db->fetch($query);
 	}
