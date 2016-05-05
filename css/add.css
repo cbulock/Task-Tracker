@@ -13,3 +13,13 @@ input.form-control, textarea.form-control {
 .form-group {
 	margin-bottom: 4rem;
 }
+
+#month_wrapper {
+	display: none;
+}
+
+#repeat_units {
+	margin-left: 2rem;
+	display: inline;
+	width: inherit;
+}
