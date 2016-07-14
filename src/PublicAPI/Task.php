@@ -4,7 +4,7 @@ namespace cbulock\task_tracker\PublicAPI;
 class Task {
 
 	private $task;
-	
+
 	public function __construct() {
 		$this->task = new \cbulock\task_tracker\Task;
 	}
@@ -21,6 +21,12 @@ class Task {
 		$this->task->add($name, $desc, $priority, $repeat);
 		$settings = new \cbulock\task_tracker\Settings;
 		return ['message' => $settings->get('task_name') . ' Added'];
+	}
+
+	public function edit($id, $name, $desc, $priority = 3, $repeat = 7) {
+		$this->task->edit($id, $name, $desc, $priority, $repeat);
+		$settings = new \cbulock\task_tracker\Settings;
+		return ['message' => $settings->get('task_name') . ' Saved'];
 	}
 
 	public function record($id) {

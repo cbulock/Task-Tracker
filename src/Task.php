@@ -4,7 +4,7 @@ namespace cbulock\task_tracker;
 class Task {
 
 	private $db;
-	
+
 	public function __construct() {
 		$this->db = new DB;
 	}
@@ -31,6 +31,17 @@ class Task {
 		$query = new \Peyote\Insert('tasks');
 		$query->columns(['name', '`desc`', 'priority', '`repeat`'])
 					->values([$name, $desc, $priority, $repeat]);
+		return $this->db->put($query);
+	}
+
+	public function edit($id, $name, $desc, $priority = 3, $repeat = 7) {
+		$query = new \Peyote\Update('tasks');
+		$query->set([
+			'name'     => $name,
+			'`desc`'   => $desc,
+			'priority' => $priority,
+			'`repeat`' => $repeat
+		])->where('id', '=', $id);
 		return $this->db->put($query);
 	}
 
