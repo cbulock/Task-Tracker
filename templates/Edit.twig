@@ -1,0 +1,35 @@
+{% extends "Base.twig" %}
+
+{% block title %}Edit {{ task_name }}{% endblock %}
+
+{% block content %}
+	<form id='edit_task'>
+		<input type="hidden" id="id" name="id" value="{{ task.id }}">
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name" name="name" placeholder="{{ task_name }} Name" value="{{ task.name }}">
+		</div>
+		<div class="form-group">
+			<label for="desc">Description</label>
+			<textarea class="form-control" id="desc" name="desc" placeholder="{{ task_name }} description">{{ task.desc }}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="repeat">Repeat After</label>
+			<input type="text"  class="form-control" id="repeat_days" name="repeat" value="{{ task.repeat }}">
+			<p class="help-block">After how many days should this {{ task_name | lower}} be available to complete again?</p>
+		</div>
+		<div class="form-group">
+			<label for="priority">Priority</label>
+			<input type="text" class="form-control" id="priority" name="priority" value="{{ task.priority }}">
+		</div>
+		<button type="submit" class="btn btn-primary">Save {{ task_name }}</button>
+	</form>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/add.css">
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/edit.js"></script>
+{% endblock %}
