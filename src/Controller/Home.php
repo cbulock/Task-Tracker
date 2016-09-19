@@ -5,6 +5,7 @@ class Home extends Base {
 
 	public function process() {
 		$this->setTemplate('Home');
+		$this->setRefresh('600');
 
 		$task = new \cbulock\task_tracker\Task;
 

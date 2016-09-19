@@ -23,8 +23,8 @@ class Task {
 		return ['message' => $settings->get('task_name') . ' Added'];
 	}
 
-	public function edit($id, $name, $desc, $priority = 3, $repeat = 7) {
-		$this->task->edit($id, $name, $desc, $priority, $repeat);
+	public function edit($id, $name, $desc, $priority = 3, $repeat = 7, $active = 1) {
+		$this->task->edit($id, $name, $desc, $priority, $repeat, $active);
 		$settings = new \cbulock\task_tracker\Settings;
 		return ['message' => $settings->get('task_name') . ' Saved'];
 	}

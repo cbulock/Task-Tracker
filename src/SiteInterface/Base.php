@@ -7,6 +7,7 @@ class Base {
  private $template;
  protected $data = [];
  private $content_type;
+ private $refresh;
 
  public function __construct() {
 
@@ -20,6 +21,10 @@ class Base {
   $this->content_type = $content_type;
  }
 
+ public function setRefresh($secs) {
+  $this->refresh = $secs;
+ }
+
  public function template($template) {
   $this->template = $template;
  }
@@ -30,6 +35,7 @@ class Base {
 
  public function render() {
   header($this->content_type);
+  if ($this->refresh) header('Refresh: ' . $this->refresh);
   $template = $this->twig->loadTemplate($this->template . '.twig');
   return $template->render($this->data);
  }
@@ -54,15 +60,6 @@ class Base {
     die();
     break;
    default:
-    $body = 'An error occured for site '. $site_name . ".\n\n";
-    $body .= "Error:\n";
-    $body .= $e->getMessage()."\n\n";
-    $body .= "Code:\n";
-    $body .= $code."\n\n";
-    $body .= "Page requested:\n";
-    $body .= $_SERVER['REQUEST_URI']."\n\n";
-    $body .= "IP:\n";
-    $body .= $_SERVER['REMOTE_ADDR'];
     $this->addData([
      'code'	=>	$code,
      'message'	=>	$e->getMessage()

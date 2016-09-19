@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `desc` text NOT NULL,
   `priority` int(11) NOT NULL,
   `repeat` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

@@ -22,6 +22,9 @@
 			<label for="priority">Priority</label>
 			<input type="text" class="form-control" id="priority" name="priority" value="{{ task.priority }}">
 		</div>
+		<div class="form-group">
+			<input type="checkbox" id="active" name="active"{% if task.active %} checked{% endif %}> <label for="active">Active</label>
+		</div>
 		<button type="submit" class="btn btn-primary">Save {{ task_name }}</button>
 	</form>
 {% endblock %}

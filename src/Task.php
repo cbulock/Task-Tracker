@@ -17,6 +17,7 @@ class Task {
 					->join('history h', 'left')
 					->on('h.id', '=', 'history_new.max_id')
 					->where('h.date IS NULL OR (DATEDIFF(NOW(), h.date) - t.repeat)', '>=', '0')
+					->where('active', '=', '1')
 					->orderBy('t.priority', 'desc');
 		return $this->db->fetch($query);
 	}
@@ -34,13 +35,14 @@ class Task {
 		return $this->db->put($query);
 	}
 
-	public function edit($id, $name, $desc, $priority = 3, $repeat = 7) {
+	public function edit($id, $name, $desc, $priority = 3, $repeat = 7, $active = 1) {
 		$query = new \Peyote\Update('tasks');
 		$query->set([
 			'name'     => $name,
 			'`desc`'   => $desc,
 			'priority' => $priority,
-			'`repeat`' => $repeat
+			'`repeat`' => $repeat,
+			'active'   => $active
 		])->where('id', '=', $id);
 		return $this->db->put($query);
 	}

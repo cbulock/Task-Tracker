@@ -32,6 +32,10 @@ class Base {
 		$this->interface->setContentType($content_type);
 	}
 
+	public function setRefresh($secs) {
+		$this->interface->setRefresh($secs);
+	}
+
 	public function get_user_data() {
 		$user = new \cbulock\task_tracker\User;
 		$settings = new \cbulock\task_tracker\Settings;
