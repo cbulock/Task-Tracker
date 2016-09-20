@@ -9,7 +9,10 @@
 		<tr>
 			<td>{{ log.date }}</td>
 			<td><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
-			<td><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
+			{% if user.is_admin %}
+				<td><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
+				<td><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>
+			{% endif %}
 		</tr>
 	{% endfor %}
 	</table>

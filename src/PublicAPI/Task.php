@@ -13,6 +13,10 @@ class Task {
 		return $this->task->available();
 	}
 
+	public function all() {
+		return $this->task->all();
+	}
+
 	public function get($id) {
 		return $this->task->get($id);
 	}

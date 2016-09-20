@@ -1,12 +1,14 @@
 {
 	"map":	{
-		"add":			"Add",
-		"admin":		"Admin",
-		"api":			"PublicAPI",
-		"edit":			"Edit",
-		"history":	"History",
-		"task":			"Task",
-		"who":			"Who"
+		"add":					"Add",
+		"admin":				"Admin",
+		"all":					"All",
+		"api":					"PublicAPI",
+		"edit":					"Edit",
+		"edit_history":	"EditHistory",
+		"history":			"History",
+		"task":					"Task",
+		"who":					"Who"
 	},
 	"default":		"Home",
 	"not_found":	"NotFound"

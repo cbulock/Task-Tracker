@@ -6,6 +6,10 @@ input.form-control, textarea.form-control {
 	width: 40rem;
 }
 
+input.form-control[type="date"] {
+	width: 18rem;
+}
+
 .slider-tick-label:last-child {
 	float: right;
 }

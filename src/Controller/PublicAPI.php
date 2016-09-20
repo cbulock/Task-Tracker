@@ -11,7 +11,7 @@ class PublicAPI extends Base {
 		$public = new \cbulock\task_tracker\API\PublicAPI;
 		$public->setClass($this->route->get_data(1) . '/' . $this->route->get_data(2));
 		$public->setMethod($this->route->get_data(3));
-		$public->setRequest(array_merge($_REQUEST, $_FILES));
+		$public->setRequest(array_merge($_GET, $_POST, $_FILES));
 
 		$this->addData(
 			[

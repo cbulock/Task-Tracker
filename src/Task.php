@@ -22,6 +22,11 @@ class Task {
 		return $this->db->fetch($query);
 	}
 
+	public function all() {
+		$query = new \Peyote\Select('tasks');
+		return $this->db->fetch($query);
+	}
+
 	public function get($id) {
 		$query = new \Peyote\Select('tasks');
 		$query->where('id', '=', $id);
