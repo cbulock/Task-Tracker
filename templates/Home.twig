@@ -5,7 +5,11 @@
 {% block content %}
 		<h2>Available {{ task_name }}s</h2>
 		{% for task in tasks %}
-			<a href='/task/{{ task.task_id }}' class='btn btn-default'>{{ task.name }}</a>
+			<a href='/task/{{ task.task_id }}' 
+				 class='btn btn-default task'
+				 data-importance="{% if task.priority < 3 %}low{% else %}high{% endif %}">
+				{{ task.name }}
+			</a>
 		{% endfor %}
 
 		{% if user.is_admin %}
@@ -13,4 +17,8 @@
 		{% else %}
 			<a href='/history'>Your {{ task_name }} History</a>
 		{% endif %}
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/home.js"></script>
 {% endblock %}
