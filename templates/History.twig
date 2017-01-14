@@ -7,13 +7,21 @@
 	<table class='table'>
 	{% for log in logs %}
 		<tr>
-			<td>{{ log.date }}</td>
-			<td><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
+			<td class="date">{{ log.date }}</td>
+			<td class="task"><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
 			{% if user.is_admin %}
-				<td><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
-				<td><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>
+				<td class="user"><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
+				<td class="edit"><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>
 			{% endif %}
 		</tr>
 	{% endfor %}
 	</table>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/history.css">
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/history.js"></script>
 {% endblock %}

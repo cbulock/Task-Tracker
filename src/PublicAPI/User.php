@@ -17,14 +17,19 @@ class User {
 		return $this->user->get($id);
 	}
 
-	public function set($id) {
-		$this->user->set($id);
+	public function set($id, $pin = NULL) {
+		$this->user->set($id, $pin);
 		$user = $this->user->get($id);
 		return ['message' => 'Logged in as ' . $user['name']];
 	}
 
 	public function current() {
 		return $this->user->current();
+	}
+
+	public function update($id, $pin) {
+		$this->user->update($id, $pin);
+		return ['message' => 'User updated'];
 	}
 
 	public function logout() {

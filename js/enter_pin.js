@@ -1,11 +1,8 @@
-$('.who').click(function(event){
-	var id = $(this).val();
+$('#enter_pin').on('submit', function(event){
 	event.preventDefault();
 	TT.call('User/set', {
-		id: id
-	})
-	.fail(function( response ) {
-		location.href = '/enter_pin?user=' + id;
+		id: $('#id').val(),
+		pin: $('#pin').val()
 	})
 	.done(function( response ) {
 		TT.notifications.store( response.notification_message );

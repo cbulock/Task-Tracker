@@ -38,6 +38,26 @@ class History {
 		return $this->db->fetch($query)[0];
 	}
 
+	public function by_task($task) {
+		$query = new \Peyote\Select('history');
+		$query->columns('COUNT(u.name) count, u.name username, u.id user_id')
+					->join('users u', 'left')
+					->on('u.id', '=', 'history.user')
+					->where('task', '=', $task)
+					->groupBy('u.id');
+		$result['users'] = $this->db->fetch($query);
+		$query = new \Peyote\Select('history h');
+		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, u.name username, u.id user_id')
+					->join('tasks t', 'left')
+					->on('t.id', '=', 'h.task')
+					->join('users u', 'left')
+					->on('u.id', '=', 'h.user')
+					->orderBy('date', 'desc')
+					->where('task', '=', $task);
+		$result['logs'] = $this->db->fetch($query);
+		return $result;
+	}
+
 	public function edit($id, $task, $user, $date) {
 		$query = new \Peyote\Update('history');
 		$query->set([

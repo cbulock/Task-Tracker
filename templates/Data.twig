@@ -1,0 +1,44 @@
+{% extends "Base.twig" %}
+
+{% block title %}{{ task.name }}{% endblock %}
+
+{% block content %}
+		<h2>{{ task.name }}</h2>
+
+		<p class='lead'>{{ task.desc }}</p>
+
+		<p>This {{ task_name | lower }} is available to do every {{ task.repeat }} days.</p>
+
+		<canvas id="chart" width="500" height="300"></canvas>
+
+		<h3>{{ task_name }} History</h3>
+
+		<table class='table'>
+			{% for log in history.logs %}
+				<tr>
+					<td>{{ log.date }}</td>
+					<td><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
+					{% if user.is_admin %}
+						<td><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
+						<td><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</table>
+
+		{% if user.is_admin %}
+			<a href='/edit/{{ task.id }}' class="btn btn-link">Edit {{ task_name }}</a>
+		{% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/data.css">
+{% endblock %}
+
+{% block javascript %}
+	<script>
+		var task_id = {{ task.id }};
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+	<script src="/js/data.js"></script>
+{% endblock %}

@@ -41,7 +41,7 @@ TT.api = {
 	debug : function( method, opt ) {
 		var id = Math.floor( (Math.random()*1000)+1 );
 		var start = +new Date();
-		JVO.api.client(method, opt).always(
+		TT.api.client(method, opt).always(
 			function( response ){
 				var end = +new Date();
 				var time = end - start;

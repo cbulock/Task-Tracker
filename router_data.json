@@ -1,11 +1,14 @@
 {
 	"map":	{
+		"account":			"Account",
 		"add":					"Add",
 		"admin":				"Admin",
 		"all":					"All",
 		"api":					"PublicAPI",
+		"data":					"Data",
 		"edit":					"Edit",
 		"edit_history":	"EditHistory",
+		"enter_pin":		"EnterPin",
 		"history":			"History",
 		"task":					"Task",
 		"who":					"Who"

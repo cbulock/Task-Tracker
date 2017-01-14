@@ -1,0 +1,23 @@
+{% extends "Base.twig" %}
+
+{% block title %}Enter PIN{% endblock %}
+
+{% block content %}
+	<h2>Enter PIN</h2>
+	<form id='enter_pin'>
+		<input type="hidden" id="id" name="id" value="{{ id }}">
+		<div class="form-group">
+			<label for="pin">PIN</label>
+			<input type="number"min="0" max="9999" step="1"  class="form-control" id="pin" name="pin" placeholder="Enter PIN to login">
+		</div>
+		<button type="submit" class="btn btn-primary">Login</button>
+	</form>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/enter_pin.css">
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/enter_pin.js"></script>
+{% endblock %}

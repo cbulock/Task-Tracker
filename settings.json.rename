@@ -2,5 +2,6 @@
 	"db_name": "",
 	"db_user": "",
 	"db_pass": "",
-	"task_name": "Task"
+	"task_name": "Task",
+	"site_name": "Task List"
 }

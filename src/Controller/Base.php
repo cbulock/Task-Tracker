@@ -9,7 +9,7 @@ class Base {
 	public function __construct($route) {
 		$this->route = $route;
 
-		if ( !$_COOKIE['user'] && ($this->route->get_data(0) != 'who' && $this->route->get_data(0) != 'api') ) {
+		if ( !$_COOKIE['user'] && ($this->route->get_data(0) != 'who' && $this->route->get_data(0) != 'api' && $this->route->get_data(0) != 'enter_pin') ) {
 			header('Location: /who');
 		}
 
@@ -42,7 +42,8 @@ class Base {
 		$this->addData(
 			[
 				'user' => $user->current(),
-				'task_name' => $settings->get('task_name')
+				'task_name' => $settings->get('task_name'),
+				'site_name' => $settings->get('site_name')
 			]
 		);
 	}

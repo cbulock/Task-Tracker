@@ -1,0 +1,23 @@
+{% extends "Base.twig" %}
+
+{% block title %}Account Settings{% endblock %}
+
+{% block content %}
+	<h2>Account Settings</h2>
+	<form id='update_account'>
+		<input type="hidden" id="id" name="id" value="{{ user.id }}">
+		<div class="form-group">
+			<label for="pin">Update PIN</label>
+			<input type="number"min="0" max="9999" step="1"  class="form-control" id="pin" name="pin" placeholder="No PIN currently set" value="{{ user.pin }}">
+		</div>
+		<button type="submit" class="btn btn-primary">Save Settings</button>
+	</form>
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/account.css">
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/account.js"></script>
+{% endblock %}

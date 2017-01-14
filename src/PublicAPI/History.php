@@ -17,6 +17,10 @@ class History {
 		return $this->history->user($id);
 	}
 
+	public function by_task($task) {
+		return $this->history->by_task($task);
+	}
+
 	public function edit($id, $task, $user, $date) {
 		$this->history->edit($id, $task, $user, $date);
 		return ['message' => 'History Saved'];

@@ -5,6 +5,7 @@
 		<title>{% block title %}{{ task_name }}{% endblock %}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 		<link rel="stylesheet" href="/css/main.css">
 		{% block stylesheets %}{% endblock %}
 		{% block meta_data %}{% endblock %}
@@ -21,8 +22,9 @@
 	<body>
 
 		<header>
+			<h1><a href="/">{{ site_name }}</a></h1>
 			{% if user %}
-				<div class='text-right'>Hello, {{ user.name }} <form id='logout'><button class='btn btn-link' type='submit'>Logout</button></form></div>
+				<div class="user">Hello, <a href='/account'>{{ user.name }}</a> <form id='logout'><button class='btn btn-link' type='submit'>Logout</button></form></div>
 			{% endif %}
 		</header>
 
