@@ -9,7 +9,8 @@ class Base {
 	public function __construct($route) {
 		$this->route = $route;
 
-		if ( !$_COOKIE['user'] && ($this->route->get_data(0) != 'who' && $this->route->get_data(0) != 'api' && $this->route->get_data(0) != 'enter_pin') ) {
+		//TODO: Need to make a whitelist for URL's that bypass this
+		if ( !$_COOKIE['user'] && ($this->route->get_data(0) != 'who' && $this->route->get_data(0) != 'api' && $this->route->get_data(0) != 'enter_pin' && $this->route->get_data(0) != 'manifest.json') ) {
 			header('Location: /who');
 		}
 
@@ -39,11 +40,13 @@ class Base {
 	public function get_user_data() {
 		$user = new \cbulock\task_tracker\User;
 		$settings = new \cbulock\task_tracker\Settings;
+		$week = new \cbulock\task_tracker\Week;
 		$this->addData(
 			[
 				'user' => $user->current(),
 				'task_name' => $settings->get('task_name'),
-				'site_name' => $settings->get('site_name')
+				'site_name' => $settings->get('site_name'),
+				'progress'  => $week->current()
 			]
 		);
 	}

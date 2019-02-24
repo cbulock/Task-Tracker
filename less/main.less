@@ -1,0 +1,100 @@
+@import 'inc/_colors.less';
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 2rem;
+	color: @main-color-contrast;
+	background-color: @background-color;
+}
+
+a,
+.btn-link {
+	color: lighten(@main-color, 8%);
+	&:hover {
+		color: @main-color;
+	}
+}
+
+h2 {
+	text-align: center;
+	font-size: 26px;
+}
+
+header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	&> div {
+		width: 33.33%;
+	}
+	h1 {
+		width: 33.33%;
+		margin: 0;
+		font-size: 28px;
+		font-weight: 800;
+		vertical-align: middle;
+		a:link, a:visited {
+			letter-spacing: -2px;
+			color: @logo-color;
+			text-decoration: none;
+		}
+	}
+	form {
+		display: inline;
+		button {
+			margin-top: -2px;
+		}
+	}
+	.progress {
+		width: 20em;
+		margin: 0 auto;
+		.value-needed {
+			float: right;
+			color: #333;
+			margin-right: 3px;
+			font-weight: 700;
+		}
+	}
+	.value-left {
+		text-align: center;
+		font-style: italic;
+		font-size: 85%;
+	}
+	.user {
+		text-align: right;
+		.btn {
+			background-color: inherit;
+			border-color: @user-button-border-color;
+			border-width: 2px;
+			font-weight: 800;
+			&:focus, &:active {
+				background-color: darken(@background-color, 20%);
+				border-color: @user-button-border-color;
+			}
+		}
+	}
+}
+
+.btn.btn-default,
+.btn.btn-default:focus,
+.btn.btn-default:active {
+	display: block;
+	margin: 2rem auto;
+	background-color: @main-color;
+	color: @main-color-contrast;
+	border-color: darken(@main-color, 5%);
+	font-size: 2rem;
+	width: 100%;
+	white-space: inherit;
+}
+
+.btn.btn-primary,
+.btn.btn-primary:focus,
+.btn.btn-primary:active {
+	background-color: @main-color;
+	color: @main-color-contrast;
+	border-color: darken(@main-color, 5%);
+}

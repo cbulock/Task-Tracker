@@ -8,10 +8,15 @@
 	{% for log in logs %}
 		<tr>
 			<td class="date">{{ log.date }}</td>
-			<td class="task"><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
+			<td class="task"><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a><span class="badge">{{ log.task_value }}</span></td>
 			{% if user.is_admin %}
 				<td class="user"><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
-				<td class="edit"><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>
+				<td class="approve">
+				{% if (log.approved == 0) %}
+					<button class='btn btn-primary btn-sm' data-history-id="{{ log.history_id }}">Approve</button>
+				{% endif %}
+				</td>
+				<td class="edit"><a href='/edit_history/{{ log.history_id }}' class='btn btn-link btn-sm'>Edit</a></td>
 			{% endif %}
 		</tr>
 	{% endfor %}

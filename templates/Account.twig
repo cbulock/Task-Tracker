@@ -1,9 +1,9 @@
 {% extends "Base.twig" %}
 
-{% block title %}Account Settings{% endblock %}
+{% block title %}Account{% endblock %}
 
 {% block content %}
-	<h2>Account Settings</h2>
+	<h2>Account</h2>
 	<form id='update_account'>
 		<input type="hidden" id="id" name="id" value="{{ user.id }}">
 		<div class="form-group">
@@ -12,6 +12,8 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Save Settings</button>
 	</form>
+	<a href='/history' class='btn btn-link'>View {{ task_name }} History</a>
+	<form id='logout'><button class='btn btn-default' type='submit'>Logout</button></form>
 {% endblock %}
 
 {% block stylesheets %}

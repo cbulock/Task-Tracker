@@ -1,6 +1,10 @@
 <?php
 namespace cbulock\task_tracker;
 
+/**
+ * Access to user data.
+ *
+ */
 class User {
 
 	private $db;
@@ -11,6 +15,18 @@ class User {
 
 	public function all() {
 		$query = new \Peyote\Select('users');
+		return $this->db->fetch($query);
+	}
+
+	public function admins() {
+		$query = new \Peyote\Select('users');
+		$query->where('is_admin', '=', 1);
+		return $this->db->fetch($query);
+	}
+
+	public function nonAdmins() {
+		$query = new \Peyote\Select('users');
+		$query->where('is_admin', '=', 0);
 		return $this->db->fetch($query);
 	}
 
@@ -27,11 +43,8 @@ class User {
 	}
 
 	public function current() {
-		$user = $_COOKIE['user'];
-
-		$query = new \Peyote\Select('users');
-		$query->where('id', '=', $user);
-		return $this->db->fetch($query)[0];
+		$id = $_COOKIE['user'];
+		return $this->get($id);
 	}
 
 	public function update($id, $pin) {
@@ -39,7 +52,7 @@ class User {
 		$query->set([
 			'pin' => $pin
 		])->where('id', '=', $id);
-		return $this->db->put($query);
+		return $this->db->update($query);
 	}
 
 	public function logout() {

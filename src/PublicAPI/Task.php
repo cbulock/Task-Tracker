@@ -21,14 +21,14 @@ class Task {
 		return $this->task->get($id);
 	}
 
-	public function add($name, $desc, $priority = 3, $repeat = 7) {
-		$this->task->add($name, $desc, $priority, $repeat);
+	public function add($name, $desc, $priority = 3, $value = 10, $repeat = 7) {
+		$this->task->add($name, $desc, $priority, $value, $repeat);
 		$settings = new \cbulock\task_tracker\Settings;
 		return ['message' => $settings->get('task_name') . ' Added'];
 	}
 
-	public function edit($id, $name, $desc, $priority = 3, $repeat = 7, $active = 1) {
-		$this->task->edit($id, $name, $desc, $priority, $repeat, $active);
+	public function edit($id, $name, $desc, $priority = 3, $value = 10, $repeat = 7, $active = 1) {
+		$this->task->edit($id, $name, $desc, $priority, $value, $repeat, $active);
 		$settings = new \cbulock\task_tracker\Settings;
 		return ['message' => $settings->get('task_name') . ' Saved'];
 	}

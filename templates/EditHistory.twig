@@ -7,7 +7,7 @@
 		<input type="hidden" id="id" name="id" value="{{ history.id }}">
 		<div class="form-group">
 			<label for="task">{{task_name}}</label>
-			<select name='task' id='task'>
+			<select name='task' id='task' class='form-control'>
 				{% for task in tasks %}
 					<option value='{{ task.id }}'{% if task.id == history.task %} selected{% endif %}>
 						{{ task.name }}
@@ -17,7 +17,7 @@
 		</div>
 		<div class="form-group">
 			<label for="user">User</label>
-			<select name='user' id='user'>
+			<select name='user' id='user' class='form-control'>
 				{% for user in users %}
 					<option value='{{ user.id }}'{% if user.id == history.user %} selected{% endif %}>
 						{{ user.name }}

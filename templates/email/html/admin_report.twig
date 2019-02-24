@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<tr><td colspan="3">Here are the {{ task_name }} results for this week</td></tr>
+
+	{% for result in message.results %}
+		<tr><td style="width: 2em"><strong>{{ result.user.name }}</td><td style="width: 10em"></td><td></td></tr>
+		<tr><td style="width: 2em"></td><td style="width: 10em">Completed points:</td><td>{{ result.completed }}</td></tr>
+		<tr><td style="width: 2em"></td><td style="width: 10em">Needed points:</td><td>{{ result.needed }}</td></tr>
+		<tr><td style="width: 2em"></td><td style="width: 10em">Difference:</td><td>{{ result.diff }}</td></tr>
+	{% endfor %}
+
+{% endblock %}

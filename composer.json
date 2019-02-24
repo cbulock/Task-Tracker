@@ -11,7 +11,9 @@
       "php" : ">=5.5",
       "cbulock/simple-router": "dev-master",
       "twig/twig": "1.24.*",
-      "davewid/peyote": "0.7.*"
+      "davewid/peyote": "0.7.*",
+      "twilio/sdk": "^5.21",
+      "swiftmailer/swiftmailer": "5.*"
     },
     "autoload": {
      "psr-4" : {

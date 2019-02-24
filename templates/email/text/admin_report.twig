@@ -1,0 +1,10 @@
+Here are the {{ task_name }} results for this week
+
+
+{% for result in message.results %}
+	{{ result.user.name }}:
+		Completed points: {{ result.completed }}
+		Needed points:    {{ result.needed }}
+		Difference:       {{ result.diff }}
+
+{% endfor %}

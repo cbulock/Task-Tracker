@@ -1,6 +1,10 @@
 <?php
 namespace cbulock\task_tracker\PublicAPI;
 
+/**
+ * History of completed tasks.
+ *
+ */
 class History {
 
 	private $history;
@@ -24,5 +28,10 @@ class History {
 	public function edit($id, $task, $user, $date) {
 		$this->history->edit($id, $task, $user, $date);
 		return ['message' => 'History Saved'];
+	}
+
+	public function approve($id) {
+		$this->history->approve($id);
+		return ['message' => 'Approved'];
 	}
 }

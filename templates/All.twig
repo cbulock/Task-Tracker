@@ -5,6 +5,12 @@
 {% block content %}
 		<h2>All {{ task_name }}s</h2>
 		{% for task in tasks %}
-			<a href='/data/{{ task.id }}' class='btn btn-default'>{{ task.name }}</a>
+			<a href='/data/{{ task.id }}' class='btn btn-default task'>{{ task.name }}
+			<span class="badge">{{ task.value }}</span>
+			</a>
 		{% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/all.css">
 {% endblock %}

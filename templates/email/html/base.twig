@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+ <head>
+  <style>
+   {% block style %}{% endblock %}
+  </style>
+ </head>
+ <body style="
+   color: #fff;
+   background-color: #708090;
+ ">
+  <table width="100%" style="border-spacing: 20px" style="color: #fff">
+   <tr><h1>{{ task_name }}</h1></tr>
+   {% block content %}{% endblock %}
+  </table>
+ </body>
+</html>

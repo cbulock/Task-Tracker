@@ -5,6 +5,7 @@ $('#edit_task').on('submit', function(event){
 		name: $('#name').val(),
 		desc: $('#desc').val(),
 		priority: $('#priority').val(),
+		value: $('#value').val(),
 		repeat: $('#repeat_days').val(),
 		active: +$('#active').is(':checked')
 	})

@@ -11,24 +11,34 @@ class History {
 
 	public function all() {
 		$query = new \Peyote\Select('history h');
-		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, u.name username, u.id user_id')
+		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, u.name username, u.id user_id, approved, h.value task_value')
 					->join('tasks t', 'left')
 					->on('t.id', '=', 'h.task')
 					->join('users u', 'left')
 					->on('u.id', '=', 'h.user')
-					->orderBy('date', 'desc');
+					->orderBy('date', 'desc')
+					->limit(50);
 		return $this->db->fetch($query);
 	}
 
 	public function user($user) {
 		$query = new \Peyote\Select('history h');
-		$query->columns('h.id history_id, t.name task_name, date, t.id task_id')
+		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, approved, h.value task_value')
 					->join('tasks t', 'left')
 					->on('t.id', '=', 'h.task')
 					->join('users u', 'left')
 					->on('u.id', '=', 'h.user')
 					->where('h.user', '=', $user)
-					->orderBy('date', 'desc');
+					->orderBy('date', 'desc')
+					->limit(30);
+		return $this->db->fetch($query);
+	}
+
+	public function get_user_range($user, $start, $end) {
+		$query = new \Peyote\Select('history');
+		$query->where('user', '=', $user)
+					->where('date', '>=', $start)
+					->where('date', '<=', $end);
 		return $this->db->fetch($query);
 	}
 
@@ -65,6 +75,17 @@ class History {
 			'user'   => $user,
 			'date' => $date
 		])->where('id', '=', $id);
-		return $this->db->put($query);
+		return $this->db->update($query);
+	}
+
+	public function approve($id) {
+		$user = (new User)->current();
+		if (!$user['is_admin']) throw new \Exception('Only admins can approve', 401);
+
+		$query = new \Peyote\Update('history');
+		$query->set([
+			'approved' => 1
+		])->where('id', '=', $id);
+		return $this->db->update($query);
 	}
 }

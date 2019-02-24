@@ -1,0 +1,22 @@
+{% extends "Base.twig" %}
+
+{% block title %}Completed Chore Info{% endblock %}
+
+{% block content %}
+
+  <h2>Completed Chore Info</h2>
+
+  <p><strong>Chore:</strong> <a href="https://chores.bulock.house/data/{{ task.id }}">{{ task.name }}</a></p>
+
+  <p><strong>Completed by:</strong> <a href="https://chores.bulock.house/history/{{ user.id }}">{{ user.name }}</a></p>
+
+  <p><strong>Date:</strong> {{ item.date }}</p>
+
+  {% if (item.approved == 0) %}
+    <button class='btn btn-primary approve' data-history-id="{{ item.id }}">Approve</button>
+  {% endif %}
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/historyitem.js"></script>
+{% endblock %}

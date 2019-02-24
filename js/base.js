@@ -53,7 +53,6 @@ TT.call = function( method, opt ) {
 	return deferred.promise();
 };
 
-
 TT.notifications.load();
 
 $('#logout').on('submit', function(event){

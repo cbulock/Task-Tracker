@@ -1,6 +1,6 @@
 {% extends "Base.twig" %}
 
-{% block title %}Available {{ task_name }}s{% endblock %}
+{% block title %}{{ task_name }}s{% endblock %}
 
 {% block content %}
 		<h2>Available {{ task_name }}s</h2>
@@ -9,14 +9,19 @@
 				 class='btn btn-default task'
 				 data-importance="{% if task.priority < 3 %}low{% else %}high{% endif %}">
 				{{ task.name }}
+				<span class="badge">{{ task.task_value }}</span>
 			</a>
 		{% endfor %}
 
 		{% if user.is_admin %}
-			<a href='/admin'>Admin Links</a>
+			<a href='/admin' class='btn btn-link'>Admin Links</a>
 		{% else %}
-			<a href='/history'>Your {{ task_name }} History</a>
+			<a href='/history' class='btn btn-link'>Your {{ task_name }} History</a>
 		{% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/css/home.css">
 {% endblock %}
 
 {% block javascript %}
