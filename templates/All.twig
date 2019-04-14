@@ -5,9 +5,7 @@
 {% block content %}
 		<h2>All {{ task_name }}s</h2>
 		{% for task in tasks %}
-			<a href='/data/{{ task.id }}' class='btn btn-default task'>{{ task.name }}
-			<span class="badge">{{ task.value }}</span>
-			</a>
+			{% include 'components/task_button.twig' %}
 		{% endfor %}
 {% endblock %}
 

@@ -5,12 +5,7 @@
 {% block content %}
 		<h2>Available {{ task_name }}s</h2>
 		{% for task in tasks %}
-			<a href='/task/{{ task.task_id }}' 
-				 class='btn btn-default task'
-				 data-importance="{% if task.priority < 3 %}low{% else %}high{% endif %}">
-				{{ task.name }}
-				<span class="badge">{{ task.task_value }}</span>
-			</a>
+			{% include 'components/task_button.twig' %}
 		{% endfor %}
 
 		{% if user.is_admin %}

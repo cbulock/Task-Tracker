@@ -9,7 +9,11 @@
 
 		<p>This {{ task_name | lower }} is available to do every {{ task.repeat }} days.</p>
 
-		<canvas id="chart" width="500" height="300"></canvas>
+		<canvas id="chart"></canvas>
+
+		{% if user.is_admin %}
+			<a href='/edit/{{ task.id }}' class="btn btn-primary">Edit {{ task_name }}</a>
+		{% endif %}
 
 		<h3>{{ task_name }} History</h3>
 
@@ -17,7 +21,7 @@
 			{% for log in history.logs %}
 				<tr>
 					<td>{{ log.date }}</td>
-					<td><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a></td>
+					<td class="task"><a href='/task/{{ log.task_id }}'>{{ log.task_name }}</a><span class="badge">{{ log.task_value }}</span></td>
 					{% if user.is_admin %}
 						<td><a href='/history/{{ log.user_id }}'>{{ log.username }}</a></td>
 						<td><a href='/edit_history/{{ log.history_id }}' class='btn btn-primary btn-sm'>Edit</a></td>

@@ -1,0 +1,38 @@
+{% extends "Base.twig" %}
+
+{% block title %}Overrides{% endblock %}
+
+{% block content %}
+	<h2>Overrides</h2>
+
+	<form id='add_override'>
+		<label for="user">User</label>
+		<select id="user" name="user" class="form-control">
+			{% for user in users %}
+				<option value='{{ user.id }}'>{{ user.name }}</button>
+			{% endfor %}
+		</select>
+
+		<div class="radio">
+			<label>
+				<input type="radio" name="method" value="exempt" required>
+				Exempt {{ task_name }} points
+			</label>
+		</div>
+		<div class="radio">
+			<label>
+				<input type="radio" name="method" value="penalty" required>
+				Penalize {{ task_name }} points
+			</label>
+		</div>
+
+		<label for="points">Points</label>
+		<input type="text" class="form-control" id="points" name="points" placeholder="10" required>
+
+		<button type="submit" class="btn btn-primary">Add Override</button>
+	</form>
+{% endblock %}
+
+{% block javascript %}
+	<script src="/js/overrides.js"></script>
+{% endblock %}

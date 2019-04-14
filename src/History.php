@@ -57,7 +57,7 @@ class History {
 					->groupBy('u.id');
 		$result['users'] = $this->db->fetch($query);
 		$query = new \Peyote\Select('history h');
-		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, u.name username, u.id user_id')
+		$query->columns('h.id history_id, t.name task_name, date, t.id task_id, u.name username, u.id user_id, h.value task_value')
 					->join('tasks t', 'left')
 					->on('t.id', '=', 'h.task')
 					->join('users u', 'left')
@@ -68,12 +68,13 @@ class History {
 		return $result;
 	}
 
-	public function edit($id, $task, $user, $date) {
+	public function edit($id, $task, $user, $date, $value) {
 		$query = new \Peyote\Update('history');
 		$query->set([
-			'task'     => $task,
-			'user'   => $user,
-			'date' => $date
+			'task'  => $task,
+			'user'  => $user,
+			'date'  => $date,
+			'value' => $value
 		])->where('id', '=', $id);
 		return $this->db->update($query);
 	}
@@ -87,5 +88,16 @@ class History {
 			'approved' => 1
 		])->where('id', '=', $id);
 		return $this->db->update($query);
+	}
+
+	public function addOverride($user_id, $points) {
+		$query = new \Peyote\Select('tasks');
+		$query->where('name', '=', "Override");
+		$override_task = $this->db->fetch($query)[0];
+
+		$query = new \Peyote\Insert('history');
+		$query->columns(['task', 'user', 'date', 'value'])
+					->values([$override_task['id'], $user_id, date('Y-m-d'), $points]);
+		$history_id = $this->db->put($query);
 	}
 }

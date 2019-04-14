@@ -7,7 +7,8 @@ $('#edit_task').on('submit', function(event){
 		priority: $('#priority').val(),
 		value: $('#value').val(),
 		repeat: $('#repeat_days').val(),
-		active: +$('#active').is(':checked')
+		active: +$('#active').is(':checked'),
+		updated: +$('#updated').is(':checked')
 	})
 	.done(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");

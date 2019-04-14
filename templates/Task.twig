@@ -3,17 +3,26 @@
 {% block title %}{{ task.name }}{% endblock %}
 
 {% block content %}
-		<h2>{{ task.name }}</h2>
+		<h2>
+			{{ task.name }}
+			{% if task.updated %}
+				<span class="updated-badge">Updated!</span>
+			{% endif %}
+		</h2>
 
-		<p class='lead'>{{ task.desc }}</p>
+		<p class='lead'>
+			{{ task.desc }}
+		</p>
 
 		<p>This {{ task_name | lower }} is available to do every {{ task.repeat }} days.</p>
+		<p>Points: {{ task.value }}</p>
 		<form id='record_task'>
 			<input type='hidden' name='task' id='task_id' value='{{ task.id }}'>
 			<button class="btn btn-primary" type='submit'>Finished This {{ task_name }}</button>
 		</form>
 		{% if user.is_admin %}
 			<a href='/edit/{{ task.id }}' class="btn btn-link">Edit {{ task_name }}</a>
+			<a href='/data/{{ task.id }}' class="btn btn-link">See {{ task_name }} data</a>
 		{% endif %}
 {% endblock %}
 

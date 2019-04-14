@@ -58,4 +58,20 @@ class User {
 	public function logout() {
 		return setcookie('user', '', time() - 3600, '/');
 	}
+
+	public function progress($id) {
+		$week = new Week;
+		return $week->current($id);
+	}
+
+	public function messageProgress($id) {
+		$notify = new Notifications;
+		$settings = new Settings;
+		$progress = $this->progress($id);
+
+		$message = 'You have ' . $progress['values']['left'] . ' points left to complete for ';
+		$message .= strtolower( $settings->get('task_name')) . 's this week.';
+
+		$notify->sendMessage($id, $message);
+	}
 }

@@ -5,7 +5,34 @@
 {% block content %}
 	<h2>{{ task_name }} Admin</h2>
 
+	{% for user in non_admin_users %}
+		{{ user.name }}
+		<div class="progress">
+			<div 
+				class="progress-bar progress-bar-success"
+				style="width: {{ user.progress.values.approved_percent }}%;"
+			>
+				{% if ( user.progress.values.approved_percent > 15 ) %}
+					{{ user.progress.values.approved }}
+				{% endif %}
+			</div>
+			<div 
+				class="progress-bar progress-bar-warning"
+				style="width: {{ user.progress.values.completed_percent - user.progress.values.approved_percent }}%;"
+			>
+				{% if ( (user.progress.values.completed_percent - user.progress.values.approved_percent) > 15 ) %}
+					{{ user.progress.values.completed - user.progress.values.approved }}
+				{% endif %}
+			</div>
+			{% if ( user.progress.values.completed_percent < 85 ) %}
+				<span class="value-needed">{{ user.progress.values.needed }}</span>
+			{% endif %}
+		</div>
+		<div class="value-left">{{ user.progress.values.needed - user.progress.values.completed }} points left</div>
+	{% endfor %}
+
 	<a href='/add' class='btn btn-default'>Add {{ task_name }}</a>
 	<a href='/all' class='btn btn-default'>View All {{ task_name }}s</a>
 	<a href='/history/all' class='btn btn-default'>{{ task_name }} History</a>
+	<a href='/overrides' class='btn btn-default'>Overrides</a>
 {% endblock %}

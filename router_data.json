@@ -11,6 +11,7 @@
 		"enter_pin":			"EnterPin",
 		"history":				"History",
 		"manifest.json":	"Manifest",
+		"overrides":			"Overrides",
 		"task":						"Task",
 		"who":						"Who"
 	},

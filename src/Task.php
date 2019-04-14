@@ -44,7 +44,7 @@ class Task {
 		return $this->db->put($query);
 	}
 
-	public function edit($id, $name, $desc, $priority = 3, $value = 10, $repeat = 7, $active = 1) {
+	public function edit($id, $name, $desc, $priority = 3, $value = 10, $repeat = 7, $active = 1, $updated = 0) {
 		$query = new \Peyote\Update('tasks');
 		$query->set([
 			'name'     => $name,
@@ -52,7 +52,8 @@ class Task {
 			'priority' => $priority,
 			'value'    => $value,
 			'`repeat`' => $repeat,
-			'active'   => $active
+			'active'   => $active,
+			'updated'  => $updated
 		])->where('id', '=', $id);
 		return $this->db->update($query);
 	}

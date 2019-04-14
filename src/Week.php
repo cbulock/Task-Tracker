@@ -13,14 +13,13 @@ class Week {
 		$this->db = new DB;
 	}
 
-	public function current() {
+	public function current($user_id = NULL) {
 		return [
 			'start'           => $this->startOfWeek(),
 			'end'             => $this->endOfWeek(),
 			'type'            => $this->typeOfWeek(),
-			'values'          => $this->userValues()
+			'values'          => $this->userValues($user_id)
 		];
-
 	}
 
 	public function close() {
@@ -97,6 +96,8 @@ class Week {
 			if ( $history['approved'] ) $approved += $history['value'];
 		}
 
+		$left = $needed - $completed;
+
 		$completed_percent = 100;
 		$approved_percent = 100;
 		if ($needed) {
@@ -108,6 +109,7 @@ class Week {
 			'needed'            => $needed,
 			'completed'         => $completed,
 			'approved'          => $approved,
+			'left'              => $left,
 			'completed_percent' => $completed_percent,
 			'approved_percent'  => $approved_percent
 		];

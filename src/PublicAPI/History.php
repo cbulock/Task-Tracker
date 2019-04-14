@@ -25,13 +25,18 @@ class History {
 		return $this->history->by_task($task);
 	}
 
-	public function edit($id, $task, $user, $date) {
-		$this->history->edit($id, $task, $user, $date);
+	public function edit($id, $task, $user, $date, $value) {
+		$this->history->edit($id, $task, $user, $date, $value);
 		return ['message' => 'History Saved'];
 	}
 
 	public function approve($id) {
 		$this->history->approve($id);
 		return ['message' => 'Approved'];
+	}
+
+	public function addOverride($user_id, $points) {
+		$this->history->addOverride($user_id, $points);
+		return ['message' => 'Override Saved'];
 	}
 }

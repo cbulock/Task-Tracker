@@ -4,7 +4,8 @@ $('#edit_history').on('submit', function(event){
 		id: $('#id').val(),
 		task: $('#task').val(),
 		user: $('#user').val(),
-		date: $('#date').val()
+		date: $('#date').val(),
+		value: $('#value').val(),
 	})
 	.done(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");

@@ -1,0 +1,10 @@
+<a href='/task/{{ task.task_id ?? task.id }}' 
+		class='btn btn-default task'
+		data-importance="{% if task.priority < 3 %}low{% else %}high{% endif %}">
+	{{ task.name }}
+	<span class="badge">{{ task.task_value ?? task.value }}</span>
+	{% if task.updated %}
+		<div class="updated-badge">Updated!</div>
+	{% endif %}
+</a>
+

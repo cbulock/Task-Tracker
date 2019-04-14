@@ -48,21 +48,6 @@ header {
 			margin-top: -2px;
 		}
 	}
-	.progress {
-		width: 20em;
-		margin: 0 auto;
-		.value-needed {
-			float: right;
-			color: #333;
-			margin-right: 3px;
-			font-weight: 700;
-		}
-	}
-	.value-left {
-		text-align: center;
-		font-style: italic;
-		font-size: 85%;
-	}
 	.user {
 		text-align: right;
 		.btn {
@@ -76,6 +61,21 @@ header {
 			}
 		}
 	}
+}
+
+.progress {
+	margin: 0 auto;
+	.value-needed {
+		float: right;
+		color: #333;
+		margin-right: 3px;
+		font-weight: 700;
+	}
+}
+.value-left {
+	text-align: center;
+	font-style: italic;
+	font-size: 85%;
 }
 
 .btn.btn-default,
@@ -97,4 +97,22 @@ header {
 	background-color: @main-color;
 	color: @main-color-contrast;
 	border-color: darken(@main-color, 5%);
+}
+
+.btn-default.task {
+	position: relative;
+  .badge {
+    background-color: @main-color-contrast;
+    color: @main-color;
+	}
+	.updated-badge {
+		position: absolute;
+		top: 0;
+    right: -25px;
+    transform: rotate(45deg);
+    background-color: red;
+    padding: 5px;
+    border-radius: 7px;
+    font-size: 0.8em;
+	}
 }

@@ -29,7 +29,12 @@ TT.call('History/by_task', {task: task_id})
 		type: 'pie',
 		data: data,
 		options: {
-			responsive: false
+			responsive: true,
+			legend: {
+				labels: {
+					fontColor: 'white'
+				},
+			}
 		}
 	});
 });
